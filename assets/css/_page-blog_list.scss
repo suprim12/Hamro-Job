@@ -1,0 +1,445 @@
+/* =============================================
+=            6.0 Blog Section            =
+============================================= */
+.intro-section {
+    & .blog-wrapp {
+        position: relative;
+
+        & .blog-img {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 279px;
+            min-height: 279px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: linear-gradient(to right, #000 0, rgba(0, 0, 0, 0) 100%);
+                width: 40%;
+                height: 100%;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, #000 100%);
+                width: 40%;
+                height: 100%;
+            }
+
+            & img {
+                display: block;
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        & .blog-content {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            & h2 {
+                color: #fff;
+                font-size: 2.5rem;
+                font-weight: 800;
+                letter-spacing: 0.02rem;
+            }
+        }
+    }
+}
+
+/* =====  End of 6.0 Blog Section  ====== */
+/* =============================================
+  =            6. All Posts            =
+  ============================================= */
+#blogMain {
+    display: block;
+    background: #f6f7f9;
+    padding: 4rem 0;
+
+    & .post-item {
+        display: block;
+        width: 100%;
+        margin-bottom: 1.5rem;
+
+        & .row {
+            min-height: 275px;
+        }
+
+        & .post-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            & a img {
+                display: block;
+                width: 100%;
+                min-height: 275px;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        & .post-info {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #dbdbdb;
+            background: #fff;
+            padding: 35px;
+
+            & a .post-title {
+                display: block;
+                font-size: 1rem;
+                font-weight: 600;
+                color: $text-color;
+                font-family: $primaryfont;
+                margin-bottom: 0.875rem;
+                letter-spacing: 0.02rem;
+
+                &:hover {
+                    color: $link;
+                }
+            }
+
+            & .posts-meta {
+                font-size: 0.875rem;
+                font-weight: 600;
+                letter-spacing: 0.02rem;
+                display: flex;
+                margin-bottom: 0.875rem;
+
+                & span {
+                    padding-right: 1rem;
+                    border-right: 2px solid rgba(0, 0, 0, 0.5);
+                    border-radius: 2px;
+
+                    & a {
+                        color: $link;
+                    }
+                }
+
+                & span.posts-meta-date {
+                    padding-left: 1rem;
+                    border-right: none;
+                    text-transform: uppercase;
+                    opacity: 0.5;
+                }
+            }
+
+            & .posts-expert {
+                opacity: 0.8;
+                font-size: 0.875rem;
+                margin-bottom: 0.5rem;
+                word-wrap: break-word;
+            }
+
+            & .readmore {
+                font-size: 0.875rem;
+                font-weight: 600;
+                color: $text-color;
+                letter-spacing: 0.02rem;
+            }
+        }
+    }
+}
+
+/* =====  End of 6. All Posts  ====== */
+/* =============================================
+  =            6.1 Blog Sidebar            =
+  ============================================= */
+#blogSidebar {
+    & .widgets-wrapp {
+        background: #fff;
+        border: 1px solid #dbdbdb;
+        padding: 30px;
+
+        & .widgets-popular,
+        & .widgets-recent,
+        & .widgets-category,
+        & .widgets-search {
+            display: block;
+            margin: 1.5rem 0;
+
+            & h2.widgets-title {
+                font-size: 1.125rem;
+                font-weight: 600;
+                letter-spacing: 0.02rem;
+                color: $text-color;
+                margin-bottom: 0.875rem;
+            }
+
+            & .media {
+                & img {
+                    display: block;
+                    width: 80px;
+                    height: 80px;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            & .media-body {
+                & a h5 {
+                    font-family: $primaryfont;
+                    color: $text-color;
+                    font-weight: 600;
+                    font-size: 0.875rem;
+                    letter-spacing: 0.02rem;
+
+                    &:hover {
+                        color: $link;
+                    }
+                }
+
+                & span {
+                    font-family: $primaryfont;
+                    font-weight: 600;
+                    opacity: 0.8;
+                    text-transform: uppercase;
+                    font-size: 0.75rem;
+                }
+            }
+        }
+
+        & .widgets-category {
+            margin-top: 0;
+
+            & .categories-list {
+                & li {
+                    display: inline-block;
+                    margin: 0.4rem;
+                    background: #fff;
+                    box-shadow: 0 0 9px rgba(0, 0, 0, 0.1);
+                    padding: 0.5rem 1rem;
+                    border-radius: 50px;
+                    transition: all 0.5s linear;
+
+                    & a {
+                        font-family: $primaryfont;
+                        color: $text-color;
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                        text-transform: capitalize;
+                        transition: all 0.5s linear;
+                    }
+
+                    &:hover {
+                        transform: translateY(-8px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* =====  End of 6.1 Blog Sidebar  ====== */
+
+/*=============================================
+  =            6.2 Single Page            =
+  =============================================*/
+#blogSingle {
+    background: #f2f2f2;
+    padding-bottom: 4rem;
+
+    .single-intro-section {
+        position: relative;
+
+        .single-intro-bg {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            display: block;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 40%;
+                height: 100%;
+                z-index: 2;
+                background: linear-gradient(to right, #000 0, rgba(0, 0, 0, 0) 100%);
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40%;
+                height: 100%;
+                z-index: 2;
+                background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, #000 100%);
+            }
+
+            & img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .single-post {
+        background: #fff;
+        box-shadow: 0 3px 5px 0 rgba(0, 1, 1, 0.1);
+        margin-bottom: 4rem;
+        margin-top: -75px;
+        position: relative;
+        z-index: 999;
+        color: $text-color;
+        border-radius: 5px;
+
+        .box-inner.box-single {
+            padding: 40px 60px 50px;
+
+            .single-post-header {
+                margin-bottom: 28px;
+
+                .single-post-title {
+                    font-size: 2.1875rem;
+                    font-family: $primaryfont;
+                    font-weight: 600;
+                    margin: 2rem 0;
+                }
+
+                .single-post-meta {
+                    display: flex;
+
+                    .meta-item {
+                        margin-right: 0.8rem;
+
+                        & a {
+                            & span {
+                                color: $text-color;
+                                opacity: 0.8;
+                                font-size: 0.875rem;
+                                font-weight: 600;
+                                font-family: var(--secondary-font);
+                            }
+                        }
+
+                        & span {
+                            color: $text-color;
+                            opacity: 0.8;
+                            font-size: 0.875rem;
+                            font-weight: 600;
+                            font-family: var(--secondary-font);
+                        }
+                    }
+
+                    .single-post-author-link img {
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        margin-right: 0.5rem;
+                    }
+                }
+
+
+            }
+
+            .single-post-content {
+                margin: 2rem 0;
+                word-break: break-word;
+                overflow: hidden;
+            }
+
+            .single-post-author {
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                padding-top: 35px;
+
+                & img {
+                    width: 100px;
+                    height: 100px;
+                    object-fit: cover;
+                    object-position: center center;
+                    border-radius: 50%;
+                }
+
+                & h4 {
+                    font-family: $primaryfont;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    margin-bottom: 1rem;
+                }
+
+                .author-desc p {
+                    opacity: 0.8;
+                    font-family: $primaryfont;
+                    font-size: 0.875rem;
+                    font-weight: bold;
+                    line-height: 2;
+                    margin-bottom: 1rem;
+                }
+
+                .author-link {
+                    margin-top: 1rem;
+                    font-size: 0.75rem;
+                    font-family: $primaryfont;
+                    color: $text-color;
+                    transition: color 0.5s ease-in-out;
+                }
+            }
+        }
+
+    }
+
+    .sidebar-1 {
+        display: block;
+        position: sticky;
+        top: 0;
+        margin-top: 1rem;
+        padding: 1rem;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 3px 5px 0 rgba(0, 1, 1, 0.1);
+
+        & h3 {
+            color: $text-color;
+            font-family: $primaryfont;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        & ul li {
+            display: block;
+            list-style: none;
+            text-decoration: none;
+            padding: 0.4rem;
+
+            & a {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                justify-content: space-between;
+                color: $text-color;
+                opacity: 0.8;
+                font-family: $primaryfont;
+                transition: all 0.5s;
+            }
+        }
+
+        & ul li:hover a {
+            transform: translateX(8px);
+            opacity: 1;
+        }
+    }
+}
+
+
+
+/*=====  End of 6.2 Single Page  ======*/

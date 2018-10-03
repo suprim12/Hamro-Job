@@ -1,0 +1,49 @@
+{% extends 'inc/base.html' %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+{% block content %}
+<style>
+	.page-content {
+		padding: 5rem 0;
+	}
+
+	.btn-custom-style {
+		padding: .375rem .75rem;
+		padding: .5rem 1rem;
+		font-size: 1.25rem;
+		line-height: 1.5;
+		border-radius: .3rem;
+		transition: color .15s
+	}
+
+	.btn-custom-style:hover {
+		opacity: 0.8;
+	}
+</style>
+<div id="IntroSection" class="intro-section">
+	<div class="blog-wrapp">
+		<div class="blog-img">
+			<img src="{% static  'img/banner/agreement-business-clapping-990817.jpg' %}" alt="asd">
+		</div>
+		<div class="container">
+			<div class="blog-content">
+				<h2 class="blog-title">List Of Applicant</h2>
+			</div>
+		</div>
+	</div>
+</div>
+<section class="page-content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto ">
+				{% for x in cv %}
+				<ul>
+					<li><a href="{{MEDIA_URL}}{{x.cv_file.url}}" target="_blank">{{x.name}}</a></li>
+				</ul>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+{% block title%}Company Application{% endblock %}

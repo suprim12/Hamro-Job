@@ -1,0 +1,73 @@
+{% load widget_tweaks %}
+{% load staticfiles %}
+<div id="IntroSection" class="intro-section">
+	<div class="blog-wrapp">
+		<div class="blog-img">
+			<img src="{% static  'img/banner/agreement-business-clapping-990817.jpg' %}" alt="asd">
+		</div>
+		<div class="container">
+			<div class="blog-content">
+				<h2 class="blog-title">Register</h2>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Page Heading / End -->
+<style>
+	.page-content{
+	   background: #f2f2f2;
+	   padding:2rem 0;
+    }
+	.form-register{
+		background-color: #fff;
+		padding: 2rem 1rem;
+		box-shadow: 0 8px 5px rgba(0,0,0,0.2);
+		border-radius: 5px;
+	}
+	.form-register h3{
+		margin-bottom: 1rem;
+		font-weight: 700;
+		letter-spacing: 1px;
+	}
+	.form-register .form-group{
+		margin-bottom: 0px;
+	}
+	.form-register p{
+       margin-bottom: 1rem;
+	}
+	.form-register button{
+			margin-top: 1rem;
+		}
+</style>
+<!-- Page Content -->
+<section class="page-content">
+	<div class="container">
+		<div class="">
+			<div class=" row">
+				<div class="col-md-6 mx-auto form-register">
+					<div class=" spacer-lg visible-sm visible-xs"></div>
+					<div class="box">
+						<h3>Register</h3>
+						<form action="{% url 'register' %}" method="POST" role="form">
+							{% csrf_token %}
+							{% for f in form %}
+							<div class="form-group">
+								<label>{{f.label_tag}} <span class="required">*</span></label>
+								{{f|add_class:'form-control'}}
+							</div>
+							{% if f.help_text %}
+							<p style="color: grey"><small>{{ f.help_text }} </small></p>
+							{% endif %}
+							{% for error in f.errors %}
+							<p style="color: red">{{ error }}</p>
+							{% endfor %}
+							{% endfor %}
+							<button type="submit" class="btn btn-primary">Register</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Page Content / End

@@ -1,0 +1,31 @@
+{% extends 'inc/base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<style>
+	.page-heading {
+		margin: 2rem 0;
+		text-align: center;
+	}
+
+	.page-content h3 {
+		display: block;
+		padding: 4rem 0;
+		text-align: center;
+	}
+</style>
+<section class="page-heading">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>CV sent successfully!!!</h2>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="page-content">
+	<div class="container">
+		<h3 class="text-center"> Your cv has been successfully sent.</h3>
+	</div>
+</section>
+{% endblock %}
+{% block title%}Vacancy Apply{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'inc/base.html' %}
+{% block content %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+<style>
+	.page-content {
+		padding: 4rem 0;
+	}
+
+	.dashboard-link ul li a {
+		color: #2c3e50;
+	}
+
+	.dashboard-link ul li a:hover {
+		color: #1abc9c;
+		cursor: pointer;
+	}
+</style>
+<section class="page-content">
+	<div class="container">
+		<h2 class="mb-4"> Dashboard </h2>
+		<div class="row dashboard-link">
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item"><a href="{% url 'updateuser' %}">User info</a></li>
+					<li class="list-group-item"><a href="{% url 'updateuserskill' %}">Skill</a></li>
+					<li class="list-group-item"><a href="{% url 'user_cv' %}">CV</a></li>
+					<li class="list-group-item"><a href="{% url 'logout' %}">Logout</a></li>
+				</ul>
+			</div>
+			<div class="col-md-8">
+				<h2>Welcome {{ user.get_username }}. Thanks for logging in</h2>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+{% block title%} Employee Dashboard {% endblock %}

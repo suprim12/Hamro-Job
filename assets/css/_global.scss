@@ -1,0 +1,408 @@
+/*=============================================
+=            0.1 Global Styles            =
+=============================================*/
+
+/* FONTS */
+@font-face {
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf) format(tff);
+    font-family: 'Montserrat';
+    font-display: fallback;
+}
+
+/* COLORS */
+$border-color: rgba(0, 0, 0, 0.1);
+$text-color: #2c3e50;
+$white: #fff;
+$link: #1abc9c;
+$yellow: #ffcd05;
+$red: #ff2626;
+$orange: #ff9333;
+$blue: #3498db;
+$footerbg: #272727;
+$bottombg: #3a3a3a;
+$success: #09bc8a;
+$danger: #ff4f79;
+$primaryfont: 'Montserrat';
+
+h1,
+h2,
+h3,
+h4 {
+    text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.open-sidebar {
+    overflow: hidden;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: $primaryfont;
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+a {
+    font-family: $primaryfont;
+    margin: 0;
+}
+
+a,
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+a,
+button,
+select {
+    outline: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.fixed-nav nav#navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    width: 100%;
+    padding: 1.5rem 1rem;
+    transition: padding 0.4s ease-in-out;
+}
+
+.fixed-nav.open-sidebar nav#navBar {
+    background: transparent;
+    box-shadow: none;
+}
+
+.btn-custom-submit-success {
+    background: $link !important;
+    color: $white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 0.125rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.border-right-form {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.border-left-form {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-custom {
+    border: none;
+
+    &.btn-custom-success {
+        background: $link !important;
+        color: $white;
+    }
+
+    &.btn-link {
+        font-size: 0.875rem;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+    }
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.section-title {
+    font-family: $primaryfont;
+    font-weight: 600;
+    font-size: 1.875rem;
+    color: $text-color;
+
+    &.center {
+        text-align: center;
+    }
+}
+
+.section-paragraph {
+    font-size: 1rem;
+    color: $text-color;
+    font-weight: 500;
+    font-family: $primaryfont;
+    margin: 1rem 0;
+}
+
+.section-subtitle {
+    font-family: $primaryfont;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.0625rem;
+
+    &.center {
+        text-align: center;
+    }
+}
+
+.section-margin {
+    margin-top: 5rem;
+}
+
+.back_to_top {
+    position: fixed;
+    bottom: 80px;
+    right: 40px;
+    z-index: 99;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    background: lightskyblue;
+    color: #fff !important;
+    cursor: pointer;
+    display: none;
+
+    &:hover {
+        background: #95c3da;
+    }
+}
+
+.back_to_top-show {
+    display: block;
+    animation: slideInRightCustom 0.5s linear forwards;
+}
+
+@keyframes slideInRightCustom {
+    0% {
+        transform: translateX(50px);
+    }
+
+    100% {
+        transfrom: translateX(0px);
+    }
+}
+
+/* menu */
+.collapse-btn {
+    display: none;
+}
+
+.open-sidebar .ham-menu {
+    & .bar {
+        background: $white;
+    }
+
+    & .bartop {
+        background: $white;
+    }
+
+    & .barbot {
+        color: $white;
+    }
+}
+
+.ham-menu {
+    display: block;
+    width: 40px;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+
+    & span {
+        border-radius: 20px;
+    }
+
+    & .bar {
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+        height: 4px;
+        background: $text-color;
+    }
+
+    & .bartop {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: $text-color;
+    }
+
+    & .barbot {
+        font-family: $primaryfont;
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: $text-color;
+    }
+}
+
+.category {
+    display: inline-block;
+    padding: 0.275rem 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    margin: 2rem 0;
+
+    &:hover {
+        color: #fff;
+        opacity: 0.8;
+    }
+}
+
+.link {
+    color: $link;
+}
+
+.category-pill {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 50px;
+    color: $white;
+    font-family: $primaryfont;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0.0125rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cat-1 {
+    background: #61c436;
+}
+
+.cat-2 {
+    background: #a66bbe;
+}
+
+.cat-3 {
+    background: #f99500;
+}
+
+.cat-4 {
+    background: #009cff;
+}
+
+#owl-one .owl-stage-outer {
+    padding: 1rem 0;
+}
+
+.chosen-container {
+    width: 100% !important;
+    min-width: 100% !important;
+}
+
+#custom-flash {
+    position: fixed;
+    z-index: 99999;
+    top: 10vh;
+    right: 10vh;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+}
+
+.flash-out {
+    animation-name: flashleft;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes flashleft {
+    0% {
+        right: 10vh;
+    }
+
+    100% {
+        right: -20%;
+    }
+
+}
+
+.fb-comments {
+    width: 100%;
+    height: 100%;
+    display: flex !important;
+    justify-content: center !important;
+
+    span {
+        width: 80% !important;
+    }
+
+    span iframe {
+        width: 80% !important;
+    }
+}
+
+.pagination {
+    .step-links {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+
+        & a {
+            color: $link;
+            width: 120px;
+            height: 40px;
+            border-radius: 50px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            -ms-flex-order: 2;
+            text-transform: capitalize;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            transition: all 0.5s ease-in-out;
+
+            &:hover {
+                background: $link;
+                color: #fff;
+            }
+        }
+
+        & span {
+            display: flex;
+            -ms-flex-order: 1;
+        }
+
+
+    }
+}
+
+/*=====  End of 0.1 Global Styles  ======*/

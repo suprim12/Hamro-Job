@@ -1,0 +1,60 @@
+{% extends 'inc\base.html' %}
+{%load staticfiles%}
+{% load widget_tweaks %}
+{% block title %} CV {% endblock %}
+{% block content %}
+<div id="IntroSection" class="intro-section">
+  <div class="blog-wrapp">
+    <div class="blog-img">
+      <img src="{% static  'img/banner/agreement-business-clapping-990817.jpg' %}" alt="asd">
+    </div>
+    <div class="container">
+      <div class="blog-content">
+        <h2 class="blog-title">Upload Your Cv</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page Heading / End -->
+<style>
+  .page-content{
+           background: #f2f2f2;
+           padding:2rem 0;
+        }
+        .form-upload{
+          background-color: #fff;
+          padding: 2rem 1rem;
+          box-shadow: 0 8px 5px rgba(0,0,0,0.2);
+          border-radius: 5px;
+        }
+        .form-upload h3{
+          margin-bottom: 1rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+        }
+        .form-upload .form-group{
+          margin-bottom: 0px;
+        }
+        .form-upload p{
+           margin-bottom: 1rem;
+        }
+        .form-upload button{
+          margin-top: 1rem;
+        }
+      </style>
+<!-- Page Content -->
+<section class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto form-upload">
+        <form method="POST" action="{% url 'employeecv' %}" enctype="multipart/form-data">
+          {{form.as_p}}
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary"> save </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Page Content / End -->
+{% endblock %}

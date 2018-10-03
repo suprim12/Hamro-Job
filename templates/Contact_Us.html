@@ -1,0 +1,100 @@
+{% extends 'inc/base.html' %}
+{% load staticfiles %}
+{% block title %}Contact Us{% endblock %}
+{% block content %}
+<!-- Page Heading / End -->
+<main id="contact">
+	<div id="IntroSection" class="intro-section">
+		<div class="blog-wrapp">
+			<div class="blog-img">
+				<img src="{% static  'img/banner/agreement-business-clapping-990817.jpg' %}" alt="asd">
+			</div>
+			<div class="container">
+				<div class="blog-content">
+					<h2 class="blog-title">Contact</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Contact Form -->
+	<section id="SectionA" class="contact-section">
+		<div class="container">
+			<div class="contact-section-wrapper">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="contact-section-content">
+							<h2>Keep in Touch</h2>
+							<form>
+								<div class="form-group">
+									<label for="">Full name</label>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+								<div class="form-group">
+									<label for="">Subject</label>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+								<div class="form-group">
+									<label for="">Email</label>
+									<input type="email" class="form-control" placeholder="">
+								</div>
+								<div class="form-group">
+									<label for="">Message</label>
+									<textarea class="form-control" name="" id="" rows="3"></textarea>
+								</div>
+								<input type="submit" class="btn-custom-submit-success" value="Submit">
+							</form>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d521.9868898185669!2d85.3528658799581!3d27.734671141111658!2m3!1f0!2f39.046912361981704!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x39eb19591f585d5d%3A0xce55daae8bd6a690!2sKapan+Sekuwa+Restaurant!5e1!3m2!1sen!2snp!4v1537362017576"
+						 frameborder="0" style="border:0" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+<!-- Page Content -->
+<section class="page-content">
+	<div class="container">
+		<div class="row contact-info p-5">
+			<div class="col-md-4">
+				<div class="icon-box">
+					<div class="icon">
+						<i class="fas fa-location-arrow"></i>
+					</div>
+					<div class="icon-box-body">
+						<h6>Compnay Address:</h6>
+						Bhaktapur,Nepal
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="icon-box">
+					<div class="icon">
+						<i class="fas fa-phone"></i>
+					</div>
+					<div class="icon-box-body">
+						<h6>Company Phone :</h6>
+						+9860662452<br>
+						01-4164025
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="icon-box">
+					<div class="icon">
+						<i class="fas fa-clock    "></i>
+					</div>
+					<div class="icon-box-body">
+						<h6>Working Hours:</h6>
+						Monday - Friday 9:00 - 21:00<br>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Page Content / End -->
+{% endblock %}

@@ -1,0 +1,48 @@
+// About Page Styles
+.about-section {
+    display: block;
+    padding: 4rem 0;
+    background: #f2f2f2;
+    width: 100%;
+    height: 100%;
+
+    .about-section-wrapper {
+        background: #fff;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+        padding: 4rem;
+
+        h2.section-title {
+            margin: 2rem 0;
+        }
+    }
+
+    .about-section-item {
+        display: flex;
+        align-items: center;
+
+        .about-item-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            margin-right: 2rem;
+
+            & i {
+                font-size: 2rem;
+            }
+        }
+
+        h2 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 0.875rem;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+    }
+
+}

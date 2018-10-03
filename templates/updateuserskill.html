@@ -1,0 +1,74 @@
+{% extends 'inc/base.html' %}
+{% block content %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+<style>
+	.page-content {
+				padding: 4rem 0;
+			}
+		
+			.dashboard-link ul li a {
+				color: #2c3e50;
+			}
+		
+			.dashboard-link ul li a:hover {
+				color: #1abc9c;
+				cursor: pointer;
+			}
+			.form-skill-add{
+				display: flex;
+				flex-direction: column;
+			}
+			.form-skill-add input{
+				margin-bottom: 1rem;
+				display: block;
+				width: 100%;
+				padding: .375rem .75rem;
+				font-size: 1rem;
+				line-height: 1.5;
+				color: #495057;
+				background-color: #fff;
+				background-clip: padding-box;
+				border: 1px solid #ced4da;
+				border-radius: .25rem;
+				transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+			}
+		</style>
+<section class="page-content">
+	<div class="container">
+		<div class="row dashboard-link">
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item"><a href="{% url 'dashboard' %}">Dashboard</li>
+					<li class="list-group-item"><a href="{% url 'updateuser' %}">User info</a></li>
+					<li class="list-group-item"><a href="{% url 'updateuserskill' %}">Skill</a></li>
+					<li class="list-group-item"><a href="{% url 'user_cv' %}">CV</a></li>
+				</ul>
+			</div>
+			<div class="col-md-8">
+				<form method='POST' action="{% url 'updateuserskill'%}" class="form-skill-add">
+					{% csrf_token %}
+					{{form}}
+					<button type='submit' class="btn btn-primary">Save</button>
+				</form>
+				<hr />
+				<table class="table">
+					<thead>
+						<th>Skill</th>
+						<th>Action</th>
+					</thead>
+					<tbody>
+						{% for s in skill %}
+						<tr>
+							<td>{{s.skill}}</td>
+							<td><a href="{% url 'deleteuserskill' s.id %}"><i class="fa fa-trash"></i></a></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+{% block title%} Register {% endblock %}

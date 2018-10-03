@@ -1,0 +1,324 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Hamro Job -->
+    <meta name="description" content="Best digital platform to find jobs in nepal any city.">
+    <meta name="keyword" content="Hamro Job, hamro job, Hamrojob,job,Nepal,nepal">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'icons/site.webmanifest">
+    <link rel="mask-icon" href="{% static 'icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Bootstrap Css -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/chosen.min.css' %}">
+    <!-- Owl CSS -->
+    <link rel="stylesheet" href="{% static 'owl/assets/owl.carousel.min.css' %}">
+    <!-- FontAwesome Css -->
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="spinner">
+                <svg viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                    <circle fill="none" stroke-width="8" stroke-linecap="round" cx="33" cy="33" r="28"></circle>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <!-- Header -->
+    <header id="header">
+        <!-- Top-Navbar -->
+        <div id="topBar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 d-flex justify-content-lg-start justify-content-center pt-2">
+                        <div class="d-flex ">
+                            <div class="phone">
+                                <i class="fas fa-phone fa-rotate-90"></i>
+                                <span>(01-4164025)</span>
+                            </div>
+                            <div class="mail ml-4">
+                                <i class="fas fa-envelope"></i>
+                                <span>Support@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-flex justify-content-lg-end justify-content-center pt-2">
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar -->
+        <nav id="navBar" class="navbar navbar-expand-lg navbar-light navbarcustom">
+            <div class="container">
+                <a href="{% url 'index' %}" class="navbar-brand">
+                    <img src="{% static 'icons/logohamro.svg'%}" alt="logohamro">
+                </a>
+                <!-- Collapse-btn -->
+                <div class="collapse-btn">
+                    <button class="ham-menu">
+                        <span class="bartop"></span>
+                        <span class="bar"></span>
+                        <span class="barbot">Menu</span>
+                    </button>
+                </div>
+                <!-- Collapse -->
+                <div class="collapse navbar-collapse ">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'vacancy' %}">Job </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Contact_Us' %}">Contacts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Resumes </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item btn-custom btn-sucess">
+                            <a href="#" class="nav-link"><i class="fas fa-cloud-upload-alt"></i>Post a Job</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'headerprofile' %}"><i class="fas fa-user"></i> Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-user-lock"></i> Login /
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- asideBar -->
+        <aside id="sideNav">
+            <div class="sideoverlay"></div>
+            <div id="sidenavBar">
+                <h2 class="sidenav-title">Sidebar</h2>
+                <div class="sidenav-list">
+                    <h3>Page Links</h3>
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Job </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Candidates </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Resumes </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </header>
+    <!-- Flash meassage -->
+    {% if messages %}
+    {% for message in messages %}
+    <div {% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissible fade show" {% endif %} id="custom-flash"
+        role="alert">
+        <strong>
+            {% if message.tags == 'success' %}
+            <i class="fas fa-check"></i>
+            {% elif message.tags == 'error' %}
+            <i class="fas fa-window-close"></i>
+            {% endif %}
+        </strong> {{ message }}.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% block content %}
+    {% endblock%}
+    <!-- Back to Top -->
+    <a class="back_to_top" title="Наверх"><i class="fas fa-angle-up"></i></a>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-wrapp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <a class="footer-title" href="">
+                            <img src="{% static 'icons/logowhite.svg'%}" alt="logohamro">
+                        </a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                            reprehenderit nulla, soluta
+                            autem atque beatae.</p>
+                        <!-- Newsletter form -->
+                        <form action="" method="post">
+                            <div class="row no-gutters">
+                                <div class="col-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="" id="" placeholder="Enter Your Email">
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <button type="submit" class="form-control btn-custom btn-custom-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-2 col-sm-6 col-6">
+                        <a href="" class="footer-title">
+                            <h3>Ouick Links</h3>
+                        </a>
+                        <ul class="footer-link">
+                            <li>
+                                <a href="">
+                                    <i class="fas fa-angle-right"></i>
+                                    Job Page
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fas fa-angle-right"></i>
+                                    Resumes
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'blog' %}">
+                                    <i class="fas fa-angle-right"></i>
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'Contact_Us' %}">
+                                    <i class="fas fa-angle-right"></i>
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-6">
+                        <a href="" class="footer-title">
+                            <h3>For Candidates</h3>
+                        </a>
+                        <ul class="footer-link">
+                            <li>
+                                <a href="">
+                                    <i class="fas fa-angle-right"></i>
+                                    Browse Jobs
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fas fa-angle-right"></i>
+                                    Browse Categories
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fas fa-angle-right"></i>
+                                    Submit Resume
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fas fa-angle-right"></i>
+                                    Job alert
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fas fa-angle-right"></i>
+                                    Candidate Dashboard
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 ">
+                        <a href="" class="footer-title">
+                            <h3>For Emplyoers</h3>
+                        </a>
+                        <ul class="footer-link">
+                            <li>
+                                <a href="">
+                                    <i class="fas fa-angle-right"></i>
+                                    Browse Jobs
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fas fa-angle-right"></i>
+                                    Submit Resume
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- footer-social-links -->
+                        <ul class="footer-social-links">
+                            <li>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fab fa-youtube"></i></a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <div class="container">
+                <!-- Bottom Footer -->
+                <p>Copyright &copy; Suprim. All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="{% static 'bootstrap/jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static 'js/TweenMax.min.js'%}"></script>
+    <script src="{% static 'js/CSSRulePlugin.min.js'%}"></script>
+    <script src="{% static 'bootstrap/popper.min.js'%}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'bootstrap/chosen.jquery.min.js'%}"></script>
+    <script src="{% static 'owl/owl.carousel.min.js'%}"></script>
+    {% block page_script %}
+    {% endblock page_script%}
+    <script src="{%static 'js/main.js'%}"></script>
+</body>
+
+</html>

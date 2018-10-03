@@ -1,0 +1,147 @@
+{% extends 'inc/base.html' %}
+{% block title %}Hamro Job | Single Blog {% endblock %}
+{% block content %}
+{% load staticfiles %}
+<!-- Facebook -->
+<script type="text/javascript" src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=2138412926421158" id="facebook-jssdk"></script>
+<script>
+	window.fbAsyncInit = function () {
+		FB.init({
+			appId: '2138412926421158',
+			autoLogAppEvents: true,
+			xfbml: true,
+			version: 'v3.1'
+		});
+	};
+	(function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {
+			return;
+		}
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<div id="fb-root"></div>
+<script>
+	(function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<main id="blogSingle">
+	{% if single_blog.image %}
+	<div class="single-intro-section">
+		<div class="single-intro-bg">
+			<img src="{{single_blog.image.url}}" alt="{{single_blog.title}}">
+		</div>
+	</div>
+	{% endif %}
+	<div class="single-content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-8">
+					<article class="single-post">
+						<div class="box-inner box-single">
+							<div class="single-post-header">
+								<div class="single-post-category">
+									<a href="" class="category-pill cat-1">Technology</a>
+								</div>
+								<h1 class="single-post-title">{{single_blog.title}}</h1>
+								<div class="single-post-meta">
+									<div class="meta-item single-post-meta-author">
+										<a href="#" class="single-post-author-link">
+											<img src="{% static 'img/banner/agreement-business-clapping-990817.jpg' %}" alt="">
+											<span>Admin</span>
+										</a>
+									</div>
+									<div class="meta-item single-pots-meta-date">
+										<span>{{instance.created_at}}</span>
+									</div>
+									<div class="meta-item single-pots-meta-comments">
+										<a href="">
+											Latter
+											comment
+										</a>
+									</div>
+									<div class="meta-item single-pots-meta-time">
+										<span>2 min</span>
+									</div>
+								</div>
+							</div>
+							<div class="single-post-content">
+								{{single_blog.content|safe}}
+							</div>
+							<div class="single-post-author">
+								<div class="row">
+									<div class="col-lg-2">
+										<img src="{% static 'img/banner/1.jpg' %}" alt="author name">
+									</div>
+									<div class="col-lg-10">
+										<h4>Author Name</h4>
+										<div class="autho-desc">
+											<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+												inventore voluptates esse labore maiores culpa, temporibus
+												reprehenderit ea alias!</p>
+										</div>
+										<div class="author-link">
+											<a href="#" class="category-pill cat-2">View all posts</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="prev-next"></div>
+						</div>
+					</article>
+				</div>
+				<!-- blog-sidebar -->
+				<div class="col-lg-3">
+					<aside class="single-sidebar">
+						<div class="sidebar-wrapper">
+							<!-- sidebar 1 -->
+							<div class="sidebar-1">
+								<h3>Topics</h3>
+								<ul class="list-unstyled">
+									<li>
+										<a href="#">
+											Travel
+											<span class="badge cat-1">12</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Foods & Drinks
+											<span class="badge cat-2">12</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											LifeStyle
+											<span class="badge cat-3">12</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Entertainment
+											<span class="badge cat-4">12</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
+			<!-- Facebook Comments -->
+			<div class="fb-comments" data-href="{{request.build_absolute_uri}}" data-numposts="5"></div>
+		</div>
+	</div>
+</main>
+{% endblock%}

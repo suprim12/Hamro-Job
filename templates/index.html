@@ -1,0 +1,352 @@
+{% extends 'inc/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- Main -->
+<main id="main">
+	<!-- SectionA - Hero Section  -->
+	<section id="sectionA" class="hero-section">
+		<div class="hero-section-wrapper">
+			<div class="hero-section-bg">
+				<img src="{% static 'img/banner/1.jpg' %} " alt="jpg">
+			</div>
+			<div class="hero-section-content">
+				<div class="container">
+					<h2>Find the right job For You</h2>
+					<span class="subtitle">Right Way</span>
+					<form action="{% url 'search' %}" method="POST" role="form">
+						{% csrf_token %}
+						<div class="row no-gutters ">
+							<div class="col-lg-3 col-3 col-sm-6 col-md-6 col-6">
+								<div class="form-group search-input">
+									<label for="">Search Keywords</label>
+									<input type="text" name="srh" placeholder="Search job now" class="form-control border-right-form ">
+									<i class="fas fa-search"></i>
+								</div>
+							</div>
+							<div class="col-lg-3 col-sm-6 col-md-6 col-6 ">
+								<div class="form-group search-select">
+									<div class="form-group">
+										<label for="">Job Categories</label>
+										<select class="custom-select border-left-form border-right-form chosen responsive-border-right" name="" id="">
+											<option value="" selected>Select Categories</option>
+											<option value="">PHP</option>
+											<option value="">Data Entry</option>
+											<option value=""></option>
+										</select>
+										<i class="fas fa-cubes"></i>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-sm-6 col-md-6 col-6">
+								<div class="form-group">
+									<div class="form-group search-select">
+										<label for="">Location</label>
+										<select class="custom-select border-left-form border-right-form chosen responsive-border-left" placeholder="Select"
+										 name="" id="">
+											<option value="" selected>Location For You</option>
+											<option value="">Kathmandu</option>
+											<option value="">Pokhara</option>
+											<option value="">Dharan</option>
+										</select>
+										<i class="fas fa-map-marker"></i>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-sm-6 col-md-6 col-6 ">
+								<div class="form-group">
+									<label for="" class="hidden">Test</label>
+									<input type="submit" class="btn-custom-submit-success form-control  border-left-form" value="Find Jobs">
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--SectionB- Feature Section -->
+	<section id="sectionB" class="feature-section section-wrapp section-margin">
+		<div class="container">
+			<h2 class="section-title center">Featured Jobs Listings</h2>
+			<p class="section-subtitle center">A better carrer is ou there. we'll help you find it to use.</p>
+			<!--Card Slider -->
+			<div class="owl-carousel owl-theme mt-5" id="owl-one">
+				{% for v in allvacancy %}
+				<div class="item">
+					<!-- cards -->
+					<div class="custom-card-wrapp">
+						<div class="custom-card-img-wrapp">
+							<div class="custom-card-img">
+								<a href="{% url 'companyvacancyclickdetails' v.id %}"><img src="{% static 'img/banner/1.jpg' %}" alt="{{v.title}}"></a>
+							</div>
+							<div class="custom-card-img-content">
+								<div class="custom-card-img-icon">
+									<i class="fas fa-star"></i>
+								</div>
+								<div class="custom-card-img-info">
+									<span>Part Time</span>
+									<span>2 days ago</span>
+								</div>
+							</div>
+						</div>
+						<div class="custom-card-content">
+							<p class="card-location"><i class="fas fa-location-arrow"></i> {{v.vacancy_location}} </p>
+							<p class="card-position"><a style="color:#000" href="{% url 'companyvacancyclickdetails' v.id %}">{{v.title}}
+								</a></p>
+							<p class="card-salary"><i class="fas fa-money-bill"></i> $800-$1500</p>
+							<p class="card-tags"><i class="fas fa-tags"></i>{{v.tag}}</p>
+						</div>
+						<div class="custom-card-footer">
+							<div class="send">
+								<a href="#"> <i class="fas fa-share"> </i> Send to Friend</a>
+							</div>
+							<div class="event">
+								<a href=""><i class="fas fa-search"></i></a>
+								<a href=""><i class="fas fa-heart"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	<!--SectionC- Call Section -->
+	<section id="sectionC" class="call-section section-wrapp section-margin">
+		<div class="call-wrapp">
+			<div class="container">
+				<div class="call-wrapp-content">
+					<h2 class="section-title">Trust us</h2>
+					<h2 class="section-title">We Always Support You to Find a Job</h2>
+					<p class="section-paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem
+						architecto quis magni vitae
+						deleniti eligendi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,
+						amet.</p>
+					<a href="#" class="btn-custom btn-custom-success btn-link">View all jobs</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--SectionD Recommend Section -->
+	<section id="sectionD" class="recommend-section section-margin">
+		<div class="container">
+			<h2 class="section-title center">Recommended Jobs</h2>
+			<p class="section-subtitle center">A better carrer is out there.we'll help you find it to use.</p>
+			<div class="row justify-content-center">
+				<div class="col-lg-10">
+					{% for v in vacancy %}
+					<div class="rec-jobs-wrapp">
+						<div class="rec-jobs-content">
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="rec-jobs-left">
+										<div class="custom-card-img-icon">
+											<i class="fas fa-star"></i>
+										</div>
+										<!-- <img src="assets/img/banner/agreement-business-businessman-872957.jpg" alt="1"> -->
+									</div>
+								</div>
+								<div class="col-lg-9">
+									<div class="rec-jobs-right">
+										<div class="rec-jobs-right-info">
+											<div class="rec-jobs-right-title">
+												<span>Full Time - {{ v.company }}</span>
+												<a href="{% url 'companyvacancyclickdetails' v.id %}">
+													<h3>{{ v.title }}</h3>
+												</a>
+											</div>
+											<span class="rec-jobs-right-time">2 days ago</span>
+										</div>
+										<div class="rec-jobs-right-desc">
+											<p class="card-location"><i class="fas fa-location-arrow"></i>
+												{{ v.vacancy_location}} </p>
+											<p class="card-salary"><i class="fas fa-money-bill"></i> $800-$1500</p>
+											<p class="card-tags"><i class="fas fa-tags"></i>{{v.tag}}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!-- rec-jobs-wrapp -->
+					{% endfor %}
+				</div>
+			</div>
+			<div class="text-center">
+				<a href="{% url 'vacancy' %}" class="btn-custom btn-custom-success btn-link btn-center">View More</a>
+			</div>
+		</div>
+	</section>
+	<!-- SectionE- BlogFrom Section -->
+	<section id="sectionE" class="fromblog-section section-margin">
+		<div class="container">
+			<h2 class="section-title center">From Our Blogs</h2>
+			<p class="section-subtitle center">A better carrer is out there.we'll help you find it to use.</p>
+			<div class="owl-carousel" id="owl-two">
+				<!-- for blogquery in blog_querys -->
+				{% for b in blog %}
+				<div class="item">
+					<article class="card-wrapper">
+						<div class="card text-white">
+							<img class="card-img" src="{{b.image.url}}" alt="{{b.title}}">
+							<div class="card-img-overlay">
+								<div class="card-img-overlay-content">
+									<a href="" class="category cat-1">Tech</a>
+									<h5 class="card-title"><a href="">{{b.title}}
+										</a></h5>
+									<p class="card-text">{{b.content|striptags|truncatechars:50}}.</p>
+									<p class="card-text">By <a href="" class="link">Admin</a></p>
+									<p class="card-text">Last updated {{b.updated|timesince}}</p>
+								</div>
+							</div>
+						</div>
+					</article>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	<!-- SectionF - Testimonial Section  -->
+	<section id="sectionF" class="testi-section section-margin">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<h2 class="section-title">Frequently Asked Question?</h2>
+					<div class="testi-section-left-content">
+						<div id="accordianId" role="tablist" aria-multiselectable="true">
+							<div class="card-custom">
+								<div class="card-header-custom" role="tab" id="section1HeaderId">
+									<a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId" aria-expanded="true"
+									 aria-controls="section1ContentId" class="togglebtn">
+										<h5 class="mb-0">
+											How do we share information ?
+										</h5>
+										<i class="fas fa-angle-down toggle-angle"></i>
+									</a>
+								</div>
+								<div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+									<div class="card-body">
+										Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas doloribus
+										autem, eveniet quo libero deleniti expedita voluptatum temporibus tempore
+										labore?
+									</div>
+								</div>
+							</div>
+							<div class="card-custom">
+								<div class="card-header-custom" role="tab" id="section2HeaderId">
+									<a data-toggle="collapse" data-parent="#accordianId" href="#section2ContentId" aria-expanded="true"
+									 aria-controls="section2ContentId" class="togglebtn">
+										<h5 class="mb-0">
+											How to contact us ?
+										</h5>
+										<i class="fas fa-angle-down toggle-angle"></i>
+									</a>
+								</div>
+								<div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
+									<div class="card-body">
+										Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
+										mollitia.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-lg-6 align-self-center">
+					<h2 class="section-title">What Pepole Say!</h2>
+					<div class="testi-left-content">
+						<div class="owl-carousel" id="owl-three">
+							<div clas="item">
+								<div class="test-item">
+									<div class="testi-header">
+										<img src="assets/img/banner/agreement-business-businessman-872957.jpg" alt="">
+										<div class="testi-author">
+											<h2>Jackey Dig</h2>
+											<span>Tech Ceo</span>
+										</div>
+									</div>
+									<div class="testi-content-body">
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
+											natus?</p>
+									</div>
+								</div>
+							</div>
+							<div clas="item">
+								<div class="test-item">
+									<div class="testi-header">
+										<img src="assets/img/banner/agreement-business-businessman-872957.jpg" alt="">
+										<div class="testi-author">
+											<h2>Suprim Golay</h2>
+											<span>Tech Ceo</span>
+										</div>
+									</div>
+									<div class="testi-content-body">
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
+											natus?</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+{% endblock %}
+{% block page_script %}
+<script>
+	$('.owl-carousel#owl-one').owlCarousel({
+		margin: 16,
+		items: 4,
+		nav: false,
+		dots: false,
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 2
+			},
+			1000: {
+				items: 4
+			}
+		}
+	});
+	$('.owl-carousel#owl-two').owlCarousel({
+		margin: 16,
+		items: 3,
+		nav: false,
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 2
+			},
+			1000: {
+				items: 3
+			}
+		}
+	});
+	$('.owl-carousel#owl-three').owlCarousel({
+		items: 1,
+		nav: false,
+		dots: true,
+		center: true,
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 1
+			},
+			1000: {
+				items: 1
+			}
+		}
+	});
+	$('.chosen').chosen();
+</script>
+{% endblock page_script%}
+{% block title%} Hamro Job | Home page{% endblock %}

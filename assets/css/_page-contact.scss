@@ -1,0 +1,23 @@
+// Contact page styles
+.contact-section {
+    background: #f2f2f2;
+    padding: 4rem;
+
+    .contact-section-wrapper {
+        background: #fff;
+
+        .contact-section-content {
+            padding: 2rem;
+
+            h2 {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,65 @@
+{% extends 'inc\base.html' %}
+{% load widget_tweaks %}
+{% load staticfiles %}
+{% block title %} Search For{% endblock %}
+{% block content %}
+<!-- Page Heading -->
+<div id="IntroSection" class="intro-section">
+  <div class="blog-wrapp">
+    <div class="blog-img">
+      <img src="{% static  'img/banner/agreement-business-clapping-990817.jpg' %}" alt="asd">
+    </div>
+    <div class="container">
+      <div class="blog-content">
+        <h2 class="blog-title">Related Jobs</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page Heading / End -->
+<style>
+  .page-content {
+    padding: 4rem 0;
+  }
+</style>
+<!-- Page Content -->
+<section class="page-content">
+  <div class="container">
+    <div>
+      {% if messages %}
+      <ul class="messages">
+        {% for k in messages %}
+        <li style="color:red">{{k}}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div><br>
+  </div>
+  <!-- Page Content / End -->
+  <div class="container" style="color:blue">
+    {% if sr %}
+    {% for k in sr %}
+    <table width="700px">
+      <tr>
+        <td>Title :</td>
+        <td><a href="{% url 'companyvacancyclickdetails' k.id %}">{{k.title}}</a></td>
+      </tr>
+      <tr>
+        <td>Skills :</td>
+        <td>{{k.tag}}</td>
+      </tr>
+      <tr>
+        <td>Company Name :</td>
+        <td>{{k.company}}</td>
+      </tr>
+      <tr>
+        <td>Job location :</td>
+        <td>{{k.vacancy_location}}</td>
+      </tr>
+    </table>
+    <hr>
+    {% endfor %}
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'inc/base.html' %}
+{% load widget_tweaks %}
+{% load staticfiles %}
+{% block content %}
+<div id="IntroSection" class="intro-section">
+	<div class="blog-wrapp">
+		<div class="blog-img">
+			<img src="{% static  'img/banner/agreement-business-clapping-990817.jpg' %}" alt="asd">
+		</div>
+		<div class="container">
+			<div class="blog-content">
+				<h2 class="blog-title">Create company form</h2>
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+	.page-content{
+		   background: #f2f2f2;
+		   padding:2rem 0;
+		}
+		.form-company{
+			background-color: #fff;
+			padding: 2rem 1rem;
+			box-shadow: 0 8px 5px rgba(0,0,0,0.2);
+			border-radius: 5px;
+		}
+		.form-company h3{
+			margin-bottom: 1rem;
+			font-weight: 700;
+			letter-spacing: 1px;
+		}
+		.form-company .form-group{
+			margin-bottom: 0px;
+		}
+		.form-company p{
+		   margin-bottom: 1rem;
+		}
+		.form-company button{
+				margin-top: 1rem;
+			}
+	</style>
+<section class="page-content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto form-company">
+				<h1>Company account</h1>
+				{% if msg %}
+				<div class="alert alert-danger">{{msg}}</div>
+				{% endif %}
+				<form action="{% url 'companyaccount' %}" method="POST" role="form">
+					{% csrf_token %}
+					{% for f in form %}
+					<div class="form-group">
+						<label>{{f.label_tag}} <span class="required">*</span></label>
+						{{f|add_class:'form-control'}}
+					</div>
+					{% if f.help_text %}
+					<small style="color: grey">{{ f.help_text }}</small>
+					{% endif %}
+					{% for error in f.errors %}
+					<p style="color: red">{{ error }}</p>
+					{% endfor %}
+					{% endfor %}
+					<button type="submit" class="btn btn-primary">Save</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</section>
+{% endblock %}
+{% block title%}who are you{% endblock %}

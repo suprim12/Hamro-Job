@@ -1,0 +1,100 @@
+/* =============================================
+=            Responsive            =
+============================================= */
+@mixin responsive-border-right {
+    .responsive-border-right {
+        .chosen-container {
+            .chosen-single {
+                border-top-right-radius: .25rem !important;
+                border-bottom-right-radius: .25rem !important;
+            }
+        }
+
+        border-top-right-radius: .25rem !important;
+        border-bottom-right-radius: .25rem !important;
+    }
+}
+
+@mixin responsive-border-left {
+    .responsive-border-left {
+        border-top-left-radius: .25rem !important;
+        border-bottom-left-radius: .25rem !important;
+    }
+}
+
+/* desktops - higher resolution */
+@media (min-width: 1281px) {}
+
+/* laptops, desktops */
+@media (min-width: 1025px) and (max-width: 1280px) {}
+
+/* tablets, ipads (portrait) */
+@media (min-width: 768px) and (max-width: 1024px) {}
+
+/* tablets, ipads (landscape) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .collapse-btn {
+        display: block;
+    }
+
+    .open-sidebar .ham-menu {
+        position: fixed;
+        top: 80px;
+        right: 30px;
+        z-index: 99999;
+    }
+
+    @include responsive-border-right;
+    @include responsive-border-left;
+
+}
+
+/* low resolution tablets, mobiles (landscape) */
+@media (min-width: 481px) and (max-width: 767px) {
+
+    body,
+    html {
+        font-size: 14px;
+    }
+
+    .collapse-btn {
+        display: block;
+    }
+
+    .open-sidebar .ham-menu {
+        position: fixed;
+        top: 80px;
+        right: 30px;
+        z-index: 99999 !important;
+    }
+
+    @include responsive-border-right;
+    @include responsive-border-left;
+
+
+}
+
+/* smartphones mobiles (portrait) */
+@media (min-width: 320px) and (max-width: 480px) {
+
+    body,
+    html {
+        font-size: 14px;
+    }
+
+    .collapse-btn {
+        display: block;
+    }
+
+    .open-sidebar .ham-menu {
+        position: fixed;
+        top: 80px;
+        right: 30px;
+        z-index: 99999 !important;
+    }
+
+    @include responsive-border-right;
+    @include responsive-border-left;
+}
+
+/* =====  End of Responsive  ====== */

@@ -1,0 +1,53 @@
+{% extends 'inc/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<style>
+    .viewjob a {
+        color: #2c3e50;
+    }
+
+    .viewjob a h2 {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .viewjob a p {
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    .viewjob a p ul li {
+        list-style: none;
+    }
+
+    .viewjob .card-group ul {
+        padding: 2rem;
+    }
+
+    .viewjob .card-group ul li {
+        list-style: disc;
+    }
+</style>
+<div class="container">
+    <h2 class="mt-4">All Jobs</h2>
+    {% for v in vacancy %}
+    <div class="jumbotron mt-4 viewjob">
+        <a href="{% url 'companyvacancyclickdetails' v.id %}">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>{{v.title}}</h2>
+                    <p>Company : {{v.company}}</p>
+                    <p>SKills : {{v.tag}}</p>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                        {% autoescape off %}{{v.description|safe}}{% endautoescape %}
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% block title%}All vacancy{% endblock %}

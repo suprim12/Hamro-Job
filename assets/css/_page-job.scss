@@ -1,0 +1,61 @@
+// Page Job
+
+/*=============================================
+=           Page - Job Section            =
+=============================================*/
+.job-section {
+    padding: 4rem;
+    background: #f2f2f2;
+
+    .job-left-bar {
+        background-color: #fff;
+        border-radius: 5px;
+        // box-shadow: -16px 16px 51px -5px rgba(0, 0, 0, 0.14);
+        padding: 2rem;
+
+        .job-left-item {
+            h2 {
+                position: relative;
+                font-size: 1.2rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                padding-bottom: 0.5rem;
+                color: $text-color;
+                margin-bottom: 1rem;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 10%;
+                    height: 2px;
+                    background: $link;
+                }
+            }
+
+            ul {
+                li {
+                    padding: 0.25rem 0.5rem;
+
+                    a {
+                        color: $text-color;
+                        opacity: 0.5;
+                        font-weight: 500;
+                        transition: all 0.5s ease;
+
+                        &:hover,
+                        &:focus {
+                            color: $link;
+                            text-decoration: none;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+
+/*=====  End of Job Section  ======*/

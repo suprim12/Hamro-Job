@@ -1,0 +1,142 @@
+{% extends 'inc/base.html' %}
+{% load staticfiles%}
+{% block title %} Hamro Job | Blog {% endblock %}
+{% block content %}
+<main id="blog">
+	<!-- Section-title -->
+	<div id="blogSection" class="intro-section">
+		<div class="blog-wrapp">
+			<div class="blog-img">
+				<img src="{% static 'img/banner/agreement-business-clapping-990817.jpg' %}" alt="asd">
+			</div>
+			<div class="container">
+				<div class="blog-content">
+					<h2 class="blog-title">Blog</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Blog main -->
+	<div id="blogMain">
+		<div class="container">
+			<div class="row">
+				<!-- left -->
+				<div class="col-lg-8 col-sm-12 col-md-8 col-xs-12">
+					<!-- All posts -->
+					{% for b in blog %}
+					<div class="post-item">
+						<div class="row no-gutters">
+							<div class="col-lg-4">
+								{% if b.image %}
+								<div class="post-img">
+									<a href="{% url 'blog_details' b.id %}"><img src="{{b.image.url}}" alt="{{b.title}}"></a>
+								</div>
+								{% endif %}
+							</div>
+							<div class="col-lg-8">
+								<div class="post-info">
+									<a href="{% url 'blog_details' b.id %}">
+										<h2 class="post-title">{{b.title}}</h2>
+									</a>
+									<div class="posts-meta">
+										<span>By <a href="">Admin</a></span>
+										<span class="posts-meta-date">{{b.created_at|timesince}}</span>
+									</div>
+									<p class="posts-expert">{{b.content|striptags|truncatechars:120}}</p>
+									<a href="" class="readmore">Read More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				<!-- Right -->
+				<div class="col-lg-4 col-sm-12 col-md-4 d-none d-sm-block ">
+					<!-- BlogSidebar -->
+					<div id="blogSidebar">
+						<div class="widgets-wrapp">
+							<!-- widgets-title -->
+							<div class="widgets-search">
+								<h2 class="widgets-title">Search Posts</h2>
+								<form method="GET" action="">
+									<div class="form-row">
+										<div class="col-8">
+											<input type="text" name="q" class="form-control" autocomplete="off" placeholder="Search.." value="{{request.GET.q}}"
+											 id="">
+										</div>
+										<div class="col-4">
+											<button type="submit" class="btn-custom-submit-success">Search</button>
+										</div>
+									</div>
+								</form>
+							</div> <!-- widgets-category -->
+							<div class="widgets-category">
+								<h2 class="widgets-title">Categories</h2>
+								<ul class="list-unstyled categories-list">
+									<li><a href="#">News</a></li>
+									<li><a href="#">Companies</a></li>
+									<li><a href="#">Candidates</a></li>
+									<li><a href="#">Positions</a></li>
+								</ul>
+							</div>
+
+							<!-- widget-popular -->
+							<div class="widgets-popular">
+								<h2 class="widgets-title">Popular Posts</h2>
+								<ul class="list-unstyled">
+									<li class="media">
+										<img class="mr-3" src="{% static 'img/banner/adult-analyzing-brainstorming-1080865.jpg' %}" alt="Generic placeholder image">
+										<div class="media-body">
+											<a href="#">
+												<h5 class="mt-0 mb-1">List-based media object</h5>
+											</a>
+											<span>Oct 26 2018</span>
+										</div>
+									</li>
+									<li class="media my-4">
+										<img class="mr-3" src="{% static 'img/banner/adult-analyzing-brainstorming-1080865.jpg' %}" alt="Generic placeholder image">
+										<div class="media-body">
+											<a href="#">
+												<h5 class="mt-0 mb-1">Design Your Productive workspace</h5>
+											</a>
+											<span>Aug 26 2018</span>
+
+										</div>
+									</li>
+									<li class="media">
+										<img class="mr-3" src="{% static 'img/banner/adult-analyzing-brainstorming-1080865.jpg' %}" alt="Generic placeholder image">
+										<div class="media-body">
+											<a href="#">
+												<h5 class="mt-0 mb-1">List-based media object</h5>
+											</a>
+											<span>Nov 26 2018</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<!-- widgets-recent -->
+							<div class="widgets-recent">
+								<h2 class="widgets-title">Recent Posts</h2>
+								<ul class="list-unstyled">
+									{% for b in blog %}
+									<li class="media mb-2">
+										<img class="mr-3" src="{{b.image.url}}" alt="Generic placeholder image">
+										<div class="media-body">
+											<div class="media-body">
+												<a href="#">
+													<h5 class="mt-0 mb-1">{{b.title}}</h5>
+												</a>
+												<span>Oct 26 2018</span>
+											</div>
+									</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+{% endblock%}
